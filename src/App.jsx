@@ -12,7 +12,7 @@ function App() {
   const upload = useRef();
   const centerImage = `url('${defaultImage}')`;
   
-  const [tags] = useState("#TakeBackNaija #isOurTurnToRule #secure&UniteNaija #TurnAroundNaija");
+  const [tags] = useState("#TakeBackNaija #secure&UniteNaija #TurnAroundNaija");
   const [footerText] = useState("Generate yours @ https://obidient.vercel.app");
 
   function generate() {
