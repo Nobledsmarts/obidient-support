@@ -3,6 +3,7 @@ import poweredBy from "./powered-by-vitawind-dark.png";
 import * as htmlToImage from "html-to-image";
 import defaultImage from "./img/me.jpg"
 import partyImage from "./img/labour-1.jpeg";
+import ObiImage from "./img/fritz_3.jpg";
 
 
 
@@ -81,6 +82,13 @@ function App() {
               </span>{" "}
               <span className="p-1 text-slate-700"> PRESIDENT </span>
             </div>
+            {/* Supporter  */}
+            {/* <div>
+                <img
+                  className="h-[300px] w-full"
+                  src={ObiImage}
+                />
+            </div> */}
             <div className="mt-5 flex h-[350px]  w-[350px] content-center items-center justify-center justify-items-center rounded-full  border-8 border-slate-200 border-r-green-600">
               <div
                 ref={trigger}
@@ -130,7 +138,7 @@ function App() {
                 </span>
                 <span className="inline-flex items-center justify-center rounded-full bg-slate-500 px-8 py-1  text-4xl font-extrabold capitalize text-white">
                   noble
-                </span>
+                </span> 
                 <br />
                 <span className="inline-flex px-2 text-4xl font-extrabold  text-blue-900">
                   STANDS WITH
@@ -143,7 +151,7 @@ function App() {
                   Obi
                 </span>
                 <br />
-                <span className="flex inline-flex items-center  text-center text-2xl font-extrabold uppercase text-blue-900">
+                <span className="inline-flex items-center  text-center text-2xl font-extrabold uppercase text-blue-900">
                   For a better nigeria
                 </span>
               </div>
