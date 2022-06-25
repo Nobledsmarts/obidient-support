@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import poweredBy from "./powered-by-vitawind-dark.png";
 import * as htmlToImage from "html-to-image";
 import defaultImage from "./img/me.jpg"
+import partyImage from "./img/labour-1.jpeg";
 
 
 
@@ -48,7 +49,7 @@ function App() {
               <div className="bgblue-900 h-[150px] basis-3/4 items-start justify-start">
                 <img
                   className="h-[150px]  border-2 border-green-400 p-1"
-                  src="src/img/labour-1.jpeg"
+                  src={partyImage}
                 />
               </div>
               <div className="bg-re-900 flex h-[150px] basis-full flex-col items-start justify-center p-1">
