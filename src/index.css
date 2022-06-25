@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body,html {
+    width : 150vh;
+    height : 150vw;
+    background : #0f172a;
+}
 .ded:before{
     content : "";
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg clip-path='url(%26quot%3b%23SvgjsClipPath1653%26quot%3b)' fill='none'%3e%3ccircle r='19.245' cx='156.48' cy='536.49' fill='rgba(67%2c 139%2c 89%2c 1)'%3e%3c/circle%3e%3ccircle r='15.3' cx='413.41' cy='298.95' fill='%23c627a3'%3e%3c/circle%3e%3ccircle r='53.755' cx='1332.36' cy='389.56' fill='rgba(67%2c 139%2c 89%2c 1)'%3e%3c/circle%3e%3ccircle r='50.265' cx='884.56' cy='198.8' fill='rgba(39%2c 164%2c 198%2c 1)'%3e%3c/circle%3e%3ccircle r='17.085' cx='1048.4' cy='551.56' fill='rgba(39%2c 164%2c 198%2c 1)'%3e%3c/circle%3e%3ccircle r='18.875' cx='273.05' cy='518.63' fill='rgba(39%2c 164%2c 198%2c 1)'%3e%3c/circle%3e%3ccircle r='46.31' cx='627.98' cy='193.42' fill='%23834fa5'%3e%3c/circle%3e%3ccircle r='52.25' cx='201.78' cy='248.07' fill='%23c627a3'%3e%3c/circle%3e%3c/g%3e%3cdefs%3e%3cclipPath id='SvgjsClipPath1653'%3e%3crect width='1440' height='560' x='0' y='0'%3e%3c/rect%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
