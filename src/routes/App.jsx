@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import poweredBy from "./powered-by-vitawind-dark.png";
 import * as htmlToImage from "html-to-image";
-import defaultImage from "./img/me.jpg"
-import partyImage from "./img/labour-1.jpeg";
-import ObiImage from "./img/fritz_3.jpg";
+import defaultImage from "../img/me.jpg"
+import partyImage from "../img/labour-1.jpeg";
+import ObiImage from "../img/fritz_3.jpg";
 
 
 
