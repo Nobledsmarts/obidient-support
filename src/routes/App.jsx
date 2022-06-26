@@ -63,8 +63,8 @@ function App() {
           </h1>
         </div>
       </div>
-      <header className="text- overflow-h-scroll flex h-[200vh] flex-col items-center justify-center bg-slate-900">
-        <div ref={preview}></div>
+      <header className="text- overflow-h-scroll flex h-full flex-col items-center justify-center bg-slate-900">
+        <div  ref={preview}></div>
         <div className="w-[50%]">
           <div className="flex-col flex">
             <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-indigo-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
