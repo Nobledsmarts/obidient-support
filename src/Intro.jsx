@@ -3,7 +3,7 @@ import { UserIcon, XIcon, UserAddIcon } from '@heroicons/react/solid'
 
 function Intro() {
     return (
-        <main className="bg-gray-100 h-full flex justify-center items-center border border-red-900">
+        <main className="bg-gray-100 h-full flex justify-center items-center">
         <div className="bg-white shadow-lg min-h-1/3 md:w-1/3 rounded-md  p-4 md:m-0 m-4">
             <div className="flex">
                 <UserAddIcon
