@@ -51,7 +51,7 @@ function App() {
     <div className="h-[200vh] bg-slate-900  text-center selection:bg-green-900">
       <div
         ref={preloader}
-        class="preloader fixed absolute flex h-screen w-screen flex-col items-center justify-center bg-slate-800 bg-white"
+        class="preloader fixed absolute flex h-full w-full flex-col items-center justify-center bg-slate-800"
         style={{ zIndex: 9999, position: " fixed" }}
       >
         <div class="flex w-full justify-center">
