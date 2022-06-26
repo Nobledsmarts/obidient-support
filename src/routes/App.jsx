@@ -25,10 +25,8 @@ function App() {
       htmlToImage
         .toPng(cardImage.current)
         .then(function (dataUrl) {
-          const img = new Image();
-          img.src = dataUrl;
-          preview.current.innerHtml = "";
-          preview.current.appendChild(img);
+          preview.current.src = dataUrl;
+          preview.current.style.height = "400px";
           cardImage.current.style.display = "none";
           preloader.current.style.display = "none";
         })
@@ -63,18 +61,24 @@ function App() {
           </h1>
         </div>
       </div>
-      <header className="text- overflow-h-scroll flex h-full flex-col items-center justify-center bg-slate-900">
-        <div  ref={preview}></div>
-        <div className="w-[50%]">
-          <div className="flex-col flex">
-            <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-indigo-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
-              <span className="mx-auto">Download</span>
-            </button>
-            <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-orange-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
-              <span className="mx-auto">Back</span>
-            </button>
+      <header className="text-  flex h-full flex-col items-center justify-center bg-slate-900">
+        <div>
+            <div>
+              <img ref={preview} src="" style={{ height : '400px !important' }}/>
+
+            </div>
+          <div className="w-[100%]">
+            <div className="flex-col flex">
+              <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-indigo-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
+                <span className="mx-auto">Download</span>
+              </button>
+              <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-orange-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
+                <span className="mx-auto">Back</span>
+              </button>
+            </div>
           </div>
         </div>
+        
         <div
           ref={cardImage}
           className="card-img relative flex h-[1028px] w-[800px] flex-col items-center justify-center bg-white"
