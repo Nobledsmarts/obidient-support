@@ -48,3 +48,7 @@ body,html {
     bottom : 0;
     /* transform : rotate(180deg); */
 }
+.innerRingLabel{
+   right : -10px;
+   bottom: 10px; 
+}

@@ -1,32 +1,46 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import * as htmlToImage from "html-to-image";
 import defaultImage from "../img/me.jpg"
 import partyImage from "../img/labour-1.jpeg";
+import rocket1 from "../img/rocket1.gif";
+import rocket2 from "../img/rocket2.gif";
 import ObiImage from "../img/fritz_3.jpg";
+import { Store } from "../main";
+import { Avatar } from "../components/Avatar";
+
 
 
 
 function App() {
+   const store = useContext(Store);
   const cardImage = useRef();
-  const trigger = useRef();
-  const upload = useRef();
-  const centerImage = `url('${defaultImage}')`;
+  const preloader = useRef();
+   const preview = useRef();
   
   const [tags] = useState("#ObiDient #Piggyvest #TakeBackNaija #secure&UniteNaija #TurnAroundNaija");
   const [footerText] = useState("Generate yours @ https://obidient.vercel.app");
 
+  useEffect(() => {
+    setTimeout(() => {
+      htmlToImage
+        .toPng(cardImage.current)
+        .then(function (dataUrl) {
+          const img = new Image();
+          img.src = dataUrl;
+          preview.current.innerHtml = "";
+          preview.current.appendChild(img);
+          cardImage.current.style.display = "none";
+          preloader.current.style.display = "none";
+        })
+        .catch(function (error) {
+          console.error("oops, something went wrong!", error);
+        });
+    }, 3000)
+  }, []);
+
   function generate() {
     // upload.current.click();
-    // htmlToImage
-    //   .toPng(cardImage.current)
-    //   .then(function (dataUrl) {
-    //     var img = new Image();
-    //     img.src = dataUrl;
-    //     document.body.appendChild(img);
-    //   })
-    //   .catch(function (error) {
-    //     console.error("oops, something went wrong!", error);
-    //   });
+    //
   }
 
   function triggerUpload(){
@@ -35,10 +49,35 @@ function App() {
   }
   return (
     <div className="h-[200vh] bg-slate-900  text-center selection:bg-green-900">
+      <div
+        ref={preloader}
+        class="preloader fixed absolute flex h-screen w-screen flex-col items-center justify-center bg-slate-800 bg-white"
+        style={{ zIndex: 9999, position: " fixed" }}
+      >
+        <div class="flex w-full justify-center">
+          <img src={rocket1} />
+        </div>
+        <div class="w-full">
+          <h1 class="inline-flex rounded-full bg-slate-900 px-5 py-3 text-xl font-bold text-white">
+            Generating Card...Please Wait
+          </h1>
+        </div>
+      </div>
       <header className="text- overflow-h-scroll flex h-[200vh] flex-col items-center justify-center bg-slate-900">
+        <div ref={preview}></div>
+        <div className="w-[50%]">
+          <div className="flex-col flex">
+            <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-indigo-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
+              <span className="mx-auto">Download</span>
+            </button>
+            <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-orange-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
+              <span className="mx-auto">Back</span>
+            </button>
+          </div>
+        </div>
         <div
           ref={cardImage}
-          className="card-img  relative flex h-[1028px] w-[800px] flex-col items-center justify-center bg-white"
+          className="card-img relative flex h-[1028px] w-[800px] flex-col items-center justify-center bg-white"
         >
           <div className="mb-5 w-full bg-green-800 p-3 font-bold text-white">
             {" "}
@@ -88,43 +127,7 @@ function App() {
                   src={ObiImage}
                 />
             </div> */}
-            <div className="mt-5 flex h-[350px]  w-[350px] content-center items-center justify-center justify-items-center rounded-full  border-8 border-slate-200 border-r-green-600">
-              <div
-                ref={trigger}
-                onClick={triggerUpload}
-                className="flex h-[300px] w-[300px] content-center  items-center justify-center justify-items-center rounded-full border-[15px] border-slate-200 hover:cursor-pointer"
-                style={{
-                  backgroundImage: "",
-                  backgroundSize: "cover",
-                  PointerEvent: "all",
-                  zIndex: 9000,
-                }}
-              >
-                <svg
-                  className="mb-3 h-10 w-10 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                  ></path>
-                </svg>
-                <p className="mb-2 text-sm text-gray-500 ">
-                  <span className="font-semibold">Click to upload</span>
-                </p>
-              </div>
-              <input
-                ref={upload}
-                name="upload"
-                type="file"
-                className="hidden"
-              />
-            </div>
+            <Avatar displayPlaceholder={false} />
           </div>
           <div className="bg-emeral-100 footer mb-5 flex w-full basis-full rounded-lg px-5">
             <div className="bg-slate200  justify-content relative flex w-full justify-center rounded-lg border-2 border-dashed border-green-400 p-5 p-1 shadow shadow">
@@ -135,9 +138,9 @@ function App() {
                 <span className="inline-flex px-2 text-4xl font-extrabold  text-blue-900 ">
                   I
                 </span>
-                <span className="inline-flex items-center justify-center rounded-full bg-slate-500 px-8 py-1  text-4xl font-extrabold capitalize text-white">
-                  noble
-                </span> 
+                <span className="inline-flex items-center justify-center rounded-full bg-slate-500 px-8 py-1 text-4xl  font-extrabold capitalize capitalize text-white">
+                  {store.name}
+                </span>
                 <br />
                 <span className="inline-flex px-2 text-4xl font-extrabold  text-blue-900">
                   STANDS WITH
@@ -157,7 +160,7 @@ function App() {
             </div>
           </div>
           <div className="mb-0 w-full bg-green-800 p-3 font-bold text-white">
-                {footerText}
+            {footerText}
           </div>
         </div>
       </header>
