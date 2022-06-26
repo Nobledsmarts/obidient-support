@@ -48,7 +48,7 @@ function App() {
     // console.log('hello');
   }
   return (
-    <div className="h-[200vh] bg-slate-900  text-center selection:bg-green-900">
+    <div className="h-full bg-slate-900  text-center selection:bg-green-900">
       <div
         ref={preloader}
         class="preloader fixed absolute flex h-full w-full flex-col items-center justify-center bg-slate-800"
