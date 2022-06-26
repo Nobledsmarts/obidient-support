@@ -61,10 +61,10 @@ function App() {
         style={{ zIndex: 9999, position: " fixed" }}
       >
         <div className="flex w-full justify-center">
-          <img src={rocket1} />
+          <img src={rocket1} style={{height:"200px"}}/>
         </div>
         <div className="w-full">
-          <h1 className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-xl font-bold text-white">
+          <h1 className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-lg md:text-xl font-bold text-white">
             Generating Card...Please Wait
           </h1>
         </div>
