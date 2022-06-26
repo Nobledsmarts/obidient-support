@@ -5,7 +5,10 @@
 body,html {
     width : 100%;
     height : 100%;
-    background : #0f172a;
+    /* background : #0f172a; */
+}
+#root {
+    height : 100%;
 }
 .ded:before{
     content : "";
