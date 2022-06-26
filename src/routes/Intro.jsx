@@ -31,7 +31,7 @@ function Intro() {
             </div>
           </div>
           <p className="my-2 text-sm text-gray-700 md:text-base">
-            Join millions of Nigerians stanning Peter Obi for a better Nigeria.
+            Join millions of Nigerians supporting Peter Obi for a better Nigeria.
           </p>
 
           <div className="my-4 border-[.01px] border-gray-200/75"></div>

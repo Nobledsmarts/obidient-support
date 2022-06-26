@@ -18,6 +18,7 @@ function App() {
   const cardImage = useRef();
   const preloader = useRef();
    const preview = useRef();
+   const parent = useRef();
   
   const [tags] = useState("#ObiDient #Piggyvest #TakeBackNaija #secure&UniteNaija #TurnAroundNaija");
   const [footerText] = useState("Generate yours @ https://obidient.vercel.app");
@@ -31,6 +32,7 @@ function App() {
           preview.current.style.height = "400px";
           cardImage.current.style.display = "none";
           preloader.current.style.display = "none";
+          parent.current.style.overflow = "auto";
         })
         .catch(function (error) {
           console.error("oops, something went wrong!", error);
@@ -54,11 +56,11 @@ function App() {
     // console.log('hello');
   }
   return (
-    <div className="h-full bg-slate-900  text-center selection:bg-green-900">
+    <div ref={parent} className="h-full bg-slate-900  text-center selection:bg-green-900" style={{overflow : 'hidden'}}>
       <div
         ref={preloader}
-        className="preloader fixed absolute flex h-full w-full flex-col items-center justify-center bg-slate-800"
-        style={{ zIndex: 9999, position: " fixed" }}
+        className="preloader  absolute flex h-full w-full flex-col items-center justify-center bg-slate-800"
+        style={{ zIndex: 9999, position: " absolute" }}
       >
         <div className="flex w-full justify-center">
           <img src={rocket1} style={{height:"200px"}}/>
