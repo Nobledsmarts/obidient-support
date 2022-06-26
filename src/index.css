@@ -52,3 +52,6 @@ body,html {
    right : -10px;
    bottom: 10px; 
 }
+.counter a {
+    /* display : none; */
+}

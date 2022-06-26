@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { UserIcon, XIcon, UserAddIcon } from '@heroicons/react/solid'
 import { Avatar } from '../components/Avatar';
 import { Store } from '../main';
-import { useNavigate, Routes, Route } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 
 function Intro() {
@@ -54,9 +54,10 @@ function Intro() {
             <div className="p-2">
               <label className="relative block">
                 <span className="mb-2 block text-sm font-medium text-slate-700 after:absolute after:p-px after:text-red-500 after:content-['*']">
-                  Your Name 
+                  Your Name
                 </span>
                 <input
+                  required
                   value={name}
                   onInput={(e) => setName(e.target.value)}
                   type="text"
@@ -72,17 +73,19 @@ function Intro() {
               </button>
             </div>
             <div className="my-4 border-[.01px] border-gray-200/75"></div>
-            <p className="text-center text-sm text-gray-600">
-              Check out on{" "}
-              <a
-                href="#"
-                className="p-1 font-medium text-yellow-700 hover:text-yellow-900"
-              >
-                github
-              </a>
+            <p
+              id="sfctppqa4ugwgx2m6atkercu3l3ujs6d2rk"
+              className="text-center text-sm text-gray-600"
+            >
             </p>
           </form>
         </div>
+        <script
+          defer
+          type="text/javascript"
+          src="https://counter9.stat.ovh/private/counter.js?c=tppqa4ugwgx2m6atkercu3l3ujs6d2rk&down=async"
+          async
+        ></script>
       </main>
     );
 }

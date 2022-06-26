@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import * as htmlToImage from "html-to-image";
 import defaultImage from "../img/me.jpg"
 import partyImage from "../img/labour-1.jpeg";
@@ -13,6 +14,7 @@ import { Avatar } from "../components/Avatar";
 
 function App() {
    const store = useContext(Store);
+   const navigate = useNavigate();
   const cardImage = useRef();
   const preloader = useRef();
    const preview = useRef();
@@ -36,6 +38,12 @@ function App() {
     }, 3000)
   }, []);
 
+  function download(){
+    const link = document.createElement("a");
+    link.download = `obidient-${Date.now()}.png`;
+    link.href = preview.current.src;
+    link.click();
+  }
   function generate() {
     // upload.current.click();
     //
@@ -49,14 +57,14 @@ function App() {
     <div className="h-full bg-slate-900  text-center selection:bg-green-900">
       <div
         ref={preloader}
-        class="preloader fixed absolute flex h-full w-full flex-col items-center justify-center bg-slate-800"
+        className="preloader fixed absolute flex h-full w-full flex-col items-center justify-center bg-slate-800"
         style={{ zIndex: 9999, position: " fixed" }}
       >
-        <div class="flex w-full justify-center">
+        <div className="flex w-full justify-center">
           <img src={rocket1} />
         </div>
-        <div class="w-full">
-          <h1 class="inline-flex rounded-full bg-slate-900 px-5 py-3 text-xl font-bold text-white">
+        <div className="w-full">
+          <h1 className="inline-flex rounded-full bg-slate-900 px-5 py-3 text-xl font-bold text-white">
             Generating Card...Please Wait
           </h1>
         </div>
@@ -69,10 +77,10 @@ function App() {
             </div>
           <div className="w-[100%]">
             <div className="flex-col flex">
-              <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-indigo-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
+              <button onClick={download} className="basis-full my-2 flex w-full justify-center rounded border-0 bg-indigo-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-indigo-500/75">
                 <span className="mx-auto">Download</span>
               </button>
-              <button className="basis-full my-2 flex w-full justify-center rounded border-0 bg-orange-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-yellow-500/75">
+              <button onClick={() => navigate('/')} className="basis-full my-2 flex w-full justify-center rounded border-0 bg-orange-600 p-2 text-sm font-semibold text-white  outline-transparent focus:ring focus:ring-orange-500/75">
                 <span className="mx-auto">Back</span>
               </button>
             </div>

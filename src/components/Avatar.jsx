@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, createContext, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Store } from "../main";
 
 export const Avatar = ({
@@ -7,8 +7,10 @@ export const Avatar = ({
   displayPlaceholder = true
 }) => {
   const store = useContext(Store);
+  const [placeholderText, setPlaceholderText] = useState('Click to Upload');
 
   function handleFile(e) {
+    setPlaceholderText("Uploading...");
     const input = e.target;
     const uploadedFile = input.files[0];
     generateBase64(uploadedFile);
@@ -20,6 +22,7 @@ export const Avatar = ({
       "load",
       function () {
         store.profilePic = reader.result;
+        setPlaceholderText("");
       },
       false
     );
@@ -56,7 +59,7 @@ export const Avatar = ({
                 ></path>
               </svg>
               <p className="mb-2 text-sm text-gray-500 ">
-                <span className="font-semibold">Click to upload</span>
+                <span className="font-semibold">{placeholderText}</span>
               </p>
               <label
                 className="mr-n5 white-text innerRingLabel absolute flex hidden h-[30px] w-[30px] items-center justify-center rounded-full bg-blue-900 shadow-md"
@@ -82,10 +85,11 @@ export const Avatar = ({
             ""
           )}
           <input
+          accept="image/*"
             name="upload"
             type="file"
             className="hidden"
-            onChange={handleFile}
+            onChange={handleFile} required
           />
         </label>
       </div>
